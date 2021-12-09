@@ -73,7 +73,7 @@ class UserTest < ActiveSupport::TestCase
   test "email addresses should be unique" do
     duplicate_user = @user.dup
     duplicate_user.email = @user.email.upcase
-    @user.phone = "9876543210"
+    @user.phone = "+9876543210"
     @user.save
     assert_not duplicate_user.valid?
   end
@@ -84,17 +84,17 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "phone should not be too short" do
-    @user.phone = "3" * 8
+    @user.phone = "+" + "3" * 7
     assert_not @user.valid?
   end
 
   test "phone should not be too long" do
-    @user.phone = "3" * 17
+    @user.phone = "+" + "3" * 16
     assert_not @user.valid?
   end
 
   test "phone validation should accept valid numbers" do
-    valid_phones = %w[+3333333333 3333333333]
+    valid_phones = %w[+3333333333 +4444444444444]
     valid_phones.each do |valid_phones|
       @user.phone = valid_phones
       assert @user.valid?, "#{valid_phones.inspect} should be valid"
@@ -102,8 +102,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "phone validation should reject invalid numbers" do
-    valid_phones = %w[+333(33)33333 333(33)33333 +3333333-33-3 3333333-33-3
-                      ++3333333333 eeeeeeeeee EEEEEEEEE]
+    valid_phones = %w[+333(33)33333 333(33)33333 33333333333 +3333333-33-3
+                      3333333-33-3 ++3333333333 eeeeeeeeee EEEEEEEEE]
     valid_phones.each do |valid_phone|
       @user.phone = valid_phone
       assert_not @user.valid?, "#{valid_phone.inspect} should be invalid"
