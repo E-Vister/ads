@@ -1,0 +1,18 @@
+<%= form_for(:session, url: signin_path, html: { class: "dropdown-menu p-4" }) do |f| %>
+  <div class="form-group">
+    <%= f.label :phone %>
+    <%= f.telephone_field :phone, class: 'form-control', placeholder: "+375298539265" %>
+  </div>
+
+  <div class="form-group">
+    <%= f.label :password %>
+    <%= f.password_field :password, class: 'form-control', placeholder: "Password" %>
+  </div>
+  <div class="form-check">
+    <%= f.label :remember_me, class: "checkbox inline" do %>
+      <%= f.check_box :remember_me %>
+      <span>Remember me</span>
+    <% end %>
+  </div>
+  <%= f.submit "Sign in", class: "btn btn-primary" %>
+<% end %>
