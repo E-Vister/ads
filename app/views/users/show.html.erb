@@ -1,11 +1,21 @@
 <% provide(:title, @user.username) %>
 <div class="row">
+  <%= gravatar_for @user %>
   <aside class="col-md-4">
     <section class="user_info">
-      <h1>
-        <%= gravatar_for @user %>
+      <p>
+        <b>Username</b><br>
         <%= @user.username %>
-      </h1>
+      </p>
+      <p>
+        <b>Email</b><br>
+        <%= email_print(@user) %>
+      </p>
+      <p>
+        <b>Phone</b><br>
+        <%= phone_print(@user) %>
+      </p>
+      <p>Change password</p>
     </section>
   </aside>
 </div>

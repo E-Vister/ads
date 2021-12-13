@@ -7,19 +7,19 @@
       <%= render 'shared/error_messages' %>
 
       <%= f.label :username %>
-      <%= f.text_field :username, class: 'form-control' %>
+      <%= f.text_field :username, class: 'form-control', placeholder: "For example User" %>
 
       <%= f.label :email %>
-      <%= f.email_field :email, class: 'form-control' %>
+      <%= f.email_field :email, class: 'form-control', placeholder: "Enter your email address" %>
 
       <%= f.label :phone %>
-      <%= f.telephone_field :phone, class: 'form-control' %>
+      <%= f.telephone_field :phone, class: 'form-control', placeholder: "Enter your phone number" %>
 
       <%= f.label :password %>
-      <%= f.password_field :password, class: 'form-control' %>
+      <%= f.password_field :password, class: 'form-control', placeholder: "At least 6 characters" %>
 
       <%= f.label :password_confirmation, "Confirmation" %>
-      <%= f.password_field :password_confirmation, class: 'form-control' %>
+      <%= f.password_field :password_confirmation, class: 'form-control', placeholder: "Repeat the password" %>
 
       <%= f.submit "Create", class: "btn btn-outline-primary" %>
     <% end %>

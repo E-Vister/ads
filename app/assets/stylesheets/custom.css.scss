@@ -138,6 +138,20 @@ p {
   margin-top: 4px !important;
 }
 
+.input-group {
+  display: -webkit-box;
+  position: absolute;
+  border-collapse: separate;
+  margin-top: 12px !important;
+  left: 650px !important;
+  right: 800px !important;
+
+  button {
+    border-top-left-radius: 0px !important;
+    border-bottom-left-radius: 0px !important;
+  }
+}
+
 /* footer */
 
 footer {
@@ -178,12 +192,8 @@ footer {
 /* sidebar */
 
 aside {
-  section.user_info {
-    margin-top: 20px;
-  }
   section {
     padding: 10px 0;
-    margin-top: 20px;
     &:first-child {
       border: 0;
       padding-top: 0;
@@ -198,7 +208,6 @@ aside {
       text-align: left;
       letter-spacing: -1px;
       margin-bottom: 3px;
-      margin-top: 0px;
     }
   }
 }
@@ -206,6 +215,7 @@ aside {
 .gravatar {
   float: left;
   margin-right: 10px;
+  margin-top: 5px;
 }
 
 .gravatar_edit {
