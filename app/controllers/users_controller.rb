@@ -4,7 +4,12 @@ class UsersController < ApplicationController
   before_action :admin_user,     only: [:destroy, :new]
 
   def show
-    @user = User.find(params[:id])
+    if User.find_by(id: params[:id]).present?
+      @user = User.find(params[:id])
+    else
+      flash[:danger] = "User with that id doesn't exist"
+      redirect_to root_url
+    end
   end
 
   def new
@@ -14,7 +19,7 @@ class UsersController < ApplicationController
   def destroy
     User.find(params[:id]).destroy
     flash[:success] = "User deleted"
-    redirect_to users_url
+    redirect_to root_url
   end
 
   def create
